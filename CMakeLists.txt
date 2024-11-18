@@ -318,6 +318,10 @@ if(CRYPTO_OPENSSL_SUPPORT)
   target_link_libraries(crypto_openssl_lib crypto)
 endif()
 
+if(CRYPTO_MBEDTLS_SUPPORT OR CRYPTO_OPENSSL_SUPPORT)
+  install(FILES lib/crypto.uc DESTINATION share/ucode)
+endif()
+
 if(UNIT_TESTING)
   enable_testing()
   add_definitions(-DUNIT_TESTING)
